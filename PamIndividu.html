@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, 
+    initial-scale=1.0">
+    <title>Table Mahasiswa</title>
+</head>
+
+<body>
+   <div class="table-div">
+        <table border="1" cellspacing="0" cellpadding="10" width= "280px" height="630px">
+            <thead class="table-div">
+                <tr>
+                    <tr style="background-color: rgb(65, 65, 183)">
+                    <th class="table-div">No </th>
+                    <th class="table-div">Nama </th>
+                    <th class="table-div">NIM </th>
+                    <th class="table-div">Nilai </th>
+                    <th class="table-div">Grade </th>
+                </tr>
+            </thead>
+        </table>
+     </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+        crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function () {
+            var list = [
+                {    
+                    "Name": "Raihan",
+                    "NIM": 120,
+                    "Nilai": 10
+                },
+                {
+                    "Name": "Rehan",
+                    "NIM": 121,
+                    "Nilai": 20
+                },
+                {
+                    "Name": "Rehan Baik",
+                    "NIM": 122,
+                    "Nilai": 30
+                },
+                {
+                    "Name": "Ratih",
+                    "NIM": 123,
+                    "Nilai": 40
+                },
+                {
+                    "Name": "Roy",
+                    "NIM": 124,
+                    "Nilai": 50
+                },
+                {
+                    "Name": "Reny",
+                    "NIM": 125,
+                    "Nilai": 60
+                },
+                {
+                    "Name": "Ryco",
+                    "NIM": 126,
+                    "Nilai": 70
+                },
+                {
+                    "Name": "Rafif",
+                    "NIM": 127,
+                    "Nilai": 80
+                },
+                {
+                    "Name": "Randa",
+                    "NIM": 128,
+                    "Nilai": 90
+                },
+                {
+                    "Name": "Rampung",
+                    "NIM": 129,
+                    "Nilai": 100
+                },
+            ]
+
+        var tr;
+            var mutu;
+            for (var i = 0; i < list.length; i++) {
+                if (i % 2 == 1){
+                    tr = $('<tr/ class="table-div">');
+                } else{
+                    tr = $('<tr/ class="table-div">');
+                }
+                tr.append('<td scope="row" class="py-4 px-4 font-medium whitespace-nowrap">' + (i + 1) + "</td>");
+                tr.append('<td class="py-4 px-6">' + list[i].Name + "</td>");
+                tr.append('<td class="py-4 px-6">' + list[i].NIM + "</td>");
+                tr.append('<td class="py-4 px-6">' + list[i].Nilai + "</td>");
+                if (list[i].Nilai < 10) {
+                    mutu = "E";
+                } else if (list[i].Nilai >= 10 && list[i].Nilai < 40) {
+                    mutu = "D";
+                } else if (list[i].Nilai >= 40 && list[i].Nilai < 50) {
+                    mutu = "C";
+                } else if (list[i].Nilai >= 50 && list[i].Nilai < 60) {
+                    mutu = "BC";
+                } else if (list[i].Nilai >= 60 && list[i].Nilai < 70) {
+                    mutu = "B";
+                } else if (list[i].Nilai >= 70 && list[i].Nilai < 80) {
+                    mutu = "AB";
+                } else if (list[i].Nilai >= 80) {
+                    mutu = "A";
+                } else {
+                    mutu = null;
+                }
+                tr.append('<td class="py-4 px-6">' + mutu + "</td>");
+                $('table').first().append(tr);
+            }
+
+        });
+    </script>
+</body>
+</html>
